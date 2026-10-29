@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Data Saver</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f0f5ff;color:#172554}
+header{background:#123b80;color:white;padding:25px 18px;text-align:center}
+header h1{margin:0;font-size:27px}
+header p{margin-bottom:0}
+main{max-width:480px;margin:22px auto;padding:16px}
+.card{background:white;padding:22px;border-radius:18px;box-shadow:0 5px 20px #00000010;margin-bottom:18px}
+h2{margin-top:0}
+button{width:100%;padding:14px;border:0;border-radius:10px;background:#1769e0;color:white;font-size:16px;font-weight:bold;margin-top:12px}
+button:active{opacity:.8}
+input{width:100%;padding:13px;border:1px solid #ccd5e5;border-radius:9px;margin-top:8px;font-size:16px}
+.note{font-size:13px;color:#52627a;line-height:1.6}
+.status{padding:12px;background:#e8f3ff;border-radius:10px;margin-top:12px}
+footer{text-align:center;font-size:12px;color:#64748b;padding:20px}
+</style>
+</head>
+<body>
+<header>
+<h1>Smart Data Saver</h1>
+<p>Make every megabyte count!</p>
+</header>
+<main>
+<div class="card">
+<h2>📊 Data Saving Tips</h2>
+<p>Use these tips to reduce mobile data consumption.</p>
+<div class="status">1. Connect to trusted Wi-Fi before downloading large files.</div>
+<div class="status">2. Enable Data Saver in your phone settings.</div>
+<div class="status">3. Turn off background data for apps you rarely use.</div>
+<div class="status">4. Download videos and music using Wi-Fi when available.</div>
+<div class="status">5. Set app updates to Wi-Fi only.</div>
+</div><div class="card">
+<h2>🧮 Data Calculator</h2>
+<label for="data">How much mobile data do you have (MB)?</label>
+<input id="data" type="number" min="0" placeholder="Example: 1024">
+<button onclick="calculate()">Calculate My Data</button>
+<div id="result" class="status" aria-live="polite">Your result will appear here.</div>
+</div><div class="card">
+<h2>📱 Phone Settings</h2>
+<p>On Android, open Settings and search for "Data Saver". Turn it on if your phone supports it.</p>
+<p class="note">This website cannot switch off mobile data or save your network data automatically. Those functions require Android system permissions or a native app.</p>
+</div><div class="card">
+<h2>About Smart Data Saver</h2>
+<p>Smart Data Saver helps users understand mobile data usage and discover practical ways to reduce unnecessary consumption.</p>
+</div>
+</main>
+<footer>Smart Data Saver · Use your data wisely.</footer>
+<script>
+function calculate(){
+const value=Number(document.getElementById('data').value);
+const result=document.getElementById('result');
+if(document.getElementById('data').value===''||!Number.isFinite(value)||value<0){
+result.textContent='Please enter a valid amount of data.';
+return;
+}
+result.textContent='You have '+value.toLocaleString()+' MB of data, approximately '+(value/1024).toFixed(2)+' GB.';
+}
+</script>
+</body>
+        </html>
